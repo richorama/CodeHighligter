@@ -1,0 +1,9 @@
+bin/
+obj/
+*.suo
+*.user
+*.csdef
+*.ncrunch*
+AzureRunMe/Profiles
+packages/
+_ncrunch_*/
