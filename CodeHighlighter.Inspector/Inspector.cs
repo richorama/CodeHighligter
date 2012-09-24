@@ -23,7 +23,19 @@ namespace CodeHighlighter.Inspector
         public static IEnumerable<HighlightReport> Inspect(Type type)
         {
             var attributes = type.GetCustomAttributes(typeof(HighlightAttribute), false) as HighlightAttribute[];
-            return attributes.Select(x => new HighlightReport(x, type));
+            foreach (var item in attributes.Select(x => new HighlightReport(x, type)))
+            {
+                yield return item;
+            }
+
+            foreach (var member in type.GetMembers())
+            {
+                foreach (var report in member.GetCustomAttributes(typeof(HighlightAttribute), false).Select(x => new HighlightReport(x as HighlightAttribute, member, type)))
+                {
+                    yield return report;
+                }
+            }
+
         }
 
     }

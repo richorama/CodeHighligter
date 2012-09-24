@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace CodeHighlighter.Inspector
@@ -14,13 +15,27 @@ namespace CodeHighlighter.Inspector
             this.Type = type;
         }
 
+        public HighlightReport(HighlightAttribute attribute, MemberInfo memberInfo, Type type)
+        {
+            this.Attribute = attribute;
+            this.Type = type;
+            this.MemberInfo = memberInfo;
+        }
+
         public HighlightAttribute Attribute { get; private set; }
 
         public Type Type { get; private set; }
 
         public override string ToString()
         {
-            return string.Format(@"{0} ""{1}"" {2}", this.Type.FullName, this.Attribute.Message, this.Attribute.Reason != HighlightReasons.Unspecified ? "(" + this.Attribute.Reason + ")" : "");
+            if (this.MemberInfo != null)
+                return string.Format(@"{0}.{3} ""{1}"" {2}", this.Type.FullName, this.Attribute.Message, this.Attribute.Reason != HighlightReasons.Unspecified ? "(" + this.Attribute.Reason + ")" : "", this.MemberInfo.Name);
+            else 
+                return string.Format(@"{0} ""{1}"" {2}", this.Type.FullName, this.Attribute.Message, this.Attribute.Reason != HighlightReasons.Unspecified ? "(" + this.Attribute.Reason + ")" : "");
         }
+
+        public PropertyInfo PropertyInfo { get; private set; }
+
+        public MemberInfo MemberInfo { get; private set; }
     }
 }
