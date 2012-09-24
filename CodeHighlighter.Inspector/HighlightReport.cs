@@ -29,9 +29,9 @@ namespace CodeHighlighter.Inspector
         public override string ToString()
         {
             if (this.MemberInfo != null)
-                return string.Format(@"{0}.{3} ""{1}"" {2}", this.Type.FullName, this.Attribute.Message, this.Attribute.Reason != HighlightReasons.Unspecified ? "(" + this.Attribute.Reason + ")" : "", this.MemberInfo.Name);
+                return string.Format(@"[{4}] {0}.{3} ""{1}"" {2}", this.Type.FullName, this.Attribute.Message, this.Attribute.Reason != HighlightReasons.Unspecified ? "(" + this.Attribute.Reason + ")" : "", this.MemberInfo.Name, this.MemberInfo.MemberType);
             else 
-                return string.Format(@"{0} ""{1}"" {2}", this.Type.FullName, this.Attribute.Message, this.Attribute.Reason != HighlightReasons.Unspecified ? "(" + this.Attribute.Reason + ")" : "");
+                return string.Format(@"[Class] {0} ""{1}"" {2}", this.Type.FullName, this.Attribute.Message, this.Attribute.Reason != HighlightReasons.Unspecified ? "(" + this.Attribute.Reason + ")" : "");
         }
 
         public PropertyInfo PropertyInfo { get; private set; }
