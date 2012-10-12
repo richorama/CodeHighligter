@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using NUnit.Framework;
 
 namespace CodeHighlighter.Tests
@@ -35,7 +33,7 @@ namespace CodeHighlighter.Tests
 
         [Highlight("Property")]
         public string ProprtyExample { get; set; }
-        
+
         [Test]
         public void TestPropertyInspection()
         {
@@ -45,6 +43,23 @@ namespace CodeHighlighter.Tests
             {
                 Console.WriteLine(report.ToString());
             }
+        }
+
+        /*
+        [Test]
+        public void TestArgumentInspection()
+        {
+            var reports = Inspector.Inspector.Inspect(typeof(Test1));
+            Assert.AreEqual(1, reports.Where(x => x.Type.Name == "Test1" && x.Attribute.Message == "Argument").Count());
+            foreach (var report in reports)
+            {
+                Console.WriteLine(report.ToString());
+            }
+        }*/
+
+        public void MethodWithArugment([Highlight("Argument")] string foo)
+        {
+            throw new NotImplementedException();
         }
 
     }

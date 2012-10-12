@@ -10,7 +10,6 @@ namespace CodeHighlighter.Runner
 {
     class Program
     {
-        [Highlight("test method")]
         static void Main(string[] args)
         {
             var path = Environment.CurrentDirectory;

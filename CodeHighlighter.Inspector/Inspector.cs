@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Reflection;
 
 namespace CodeHighlighter.Inspector
@@ -30,9 +29,22 @@ namespace CodeHighlighter.Inspector
 
             foreach (var member in type.GetMembers())
             {
-                foreach (var report in member.GetCustomAttributes(typeof(HighlightAttribute), false).Select(x => new HighlightReport(x as HighlightAttribute, member, type)))
+                foreach (var report in member.GetCustomAttributes(typeof(HighlightAttribute), false)
+                    .Select(x => new HighlightReport(x as HighlightAttribute, member, type)))
                 {
                     yield return report;
+                }
+            }
+
+            foreach (var method in type.GetMethods())
+            {
+                foreach (var parameter in method.GetParameters())
+                {
+                    foreach (var report in parameter.GetCustomAttributes(typeof(HighlightReport), false)
+                        .Select(x => new HighlightReport(x as HighlightAttribute, method, type)))
+                    {
+                        yield return report;
+                    }
                 }
             }
 
