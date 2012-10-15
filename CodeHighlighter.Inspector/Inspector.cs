@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Microsoft.Samples.SimplePDBReader;
 
 namespace CodeHighlighter.Inspector
 {
@@ -21,8 +22,10 @@ namespace CodeHighlighter.Inspector
 
         public static IEnumerable<HighlightReport> Inspect(Type type)
         {
+            var location = GetLocation(type);
+
             var attributes = type.GetCustomAttributes(typeof(HighlightAttribute), false) as HighlightAttribute[];
-            foreach (var item in attributes.Select(x => new HighlightReport(x, type)))
+            foreach (var item in attributes.Select(x => new HighlightReport(x, type, location)))
             {
                 yield return item;
             }
@@ -30,24 +33,37 @@ namespace CodeHighlighter.Inspector
             foreach (var member in type.GetMembers())
             {
                 foreach (var report in member.GetCustomAttributes(typeof(HighlightAttribute), false)
-                    .Select(x => new HighlightReport(x as HighlightAttribute, member, type)))
+                    .Select(x => new HighlightReport(x as HighlightAttribute, member, type, location)))
                 {
                     yield return report;
                 }
             }
+            
+        }
+
+        private static string GetLocation(Type type)
+        {
 
             foreach (var method in type.GetMethods())
             {
-                foreach (var parameter in method.GetParameters())
+                var location = string.Empty;
+                try
                 {
-                    foreach (var report in parameter.GetCustomAttributes(typeof(HighlightReport), false)
-                        .Select(x => new HighlightReport(x as HighlightAttribute, method, type)))
+                    using (var symbolProvider = new SymbolProvider("./", SymbolProvider.SymSearchPolicies.AllowOriginalPathAccess))
                     {
-                        yield return report;
+                        var sourceLocation = symbolProvider.GetSourceLoc(method, 0);
+                        if (!string.IsNullOrWhiteSpace(sourceLocation.Url))
+                        {
+                            return sourceLocation.Url;
+                        }
                     }
                 }
+                catch 
+                {
+                    //Console.WriteLine(ex);
+                }
             }
-
+            return null;
         }
 
     }
