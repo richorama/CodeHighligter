@@ -38,7 +38,7 @@ namespace CodeHighlighter.Inspector
                     yield return report;
                 }
             }
-            
+
         }
 
         private static string GetLocation(Type type)
@@ -58,9 +58,9 @@ namespace CodeHighlighter.Inspector
                         }
                     }
                 }
-                catch 
+                catch
                 {
-                    //Console.WriteLine(ex);
+
                 }
             }
             return null;
