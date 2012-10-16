@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using CodeHighlighter.Runner;
 using NUnit.Framework;
 
 namespace CodeHighlighter.Tests
@@ -11,7 +12,7 @@ namespace CodeHighlighter.Tests
         [Test]
         public void TestClassInspection()
         {
-            var reports = Inspector.Inspector.Inspect(typeof(Test1));
+            var reports = Inspector.Inspect(typeof(Test1));
             Assert.AreEqual(1, reports.Where(x => x.Type.Name == "Test1" && x.Attribute.Message == "Class").Count());
             foreach (var report in reports)
             {
@@ -23,7 +24,7 @@ namespace CodeHighlighter.Tests
         [Highlight("Method")]
         public void TestMethodInspection()
         {
-            var reports = Inspector.Inspector.Inspect(typeof(Test1));
+            var reports = Inspector.Inspect(typeof(Test1));
             Assert.AreEqual(1, reports.Where(x => x.Type.Name == "Test1" && x.Attribute.Message == "Method").Count());
             foreach (var report in reports)
             {
@@ -37,7 +38,7 @@ namespace CodeHighlighter.Tests
         [Test]
         public void TestPropertyInspection()
         {
-            var reports = Inspector.Inspector.Inspect(typeof(Test1));
+            var reports = Inspector.Inspect(typeof(Test1));
             Assert.AreEqual(1, reports.Where(x => x.Type.Name == "Test1" && x.Attribute.Message == "Property").Count());
             foreach (var report in reports)
             {

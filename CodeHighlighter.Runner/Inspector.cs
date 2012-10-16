@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.Samples.SimplePDBReader;
 
-namespace CodeHighlighter.Inspector
+namespace CodeHighlighter.Runner
 {
     public static class Inspector
     {

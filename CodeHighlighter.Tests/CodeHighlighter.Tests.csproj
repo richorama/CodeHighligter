@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\Dependencies\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,9 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodeHighlighter.Inspector\CodeHighlighter.Inspector.csproj">
-      <Project>{ecb49ee2-ff32-4186-9ad7-3611005e6903}</Project>
-      <Name>CodeHighlighter.Inspector</Name>
+    <ProjectReference Include="..\CodeHighlighter.Runner\CodeHighlighter.Runner.csproj">
+      <Project>{76e30090-c798-4629-84b5-a17007607551}</Project>
+      <Name>CodeHighlighter.Runner</Name>
     </ProjectReference>
     <ProjectReference Include="..\CodeHighlighter\CodeHighlighter.csproj">
       <Project>{9e0b2f89-a591-40e7-bd52-eb2cc1b8193c}</Project>

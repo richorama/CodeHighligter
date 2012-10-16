@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using CodeHighlighter.Inspector;
 
 namespace CodeHighlighter.Runner
 {
@@ -24,7 +23,7 @@ namespace CodeHighlighter.Runner
                 {
                     Console.WriteLine("{0}", Path.GetFileName(filename));
                     var assembly = Assembly.LoadFile(filename);
-                    foreach (var report in Inspector.Inspector.Inspect(assembly))
+                    foreach (var report in Inspector.Inspect(assembly))
                     {
                         Console.WriteLine(string.Format("  {0}",report));    
                     }

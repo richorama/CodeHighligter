@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace CodeHighlighter.Inspector
+namespace CodeHighlighter.Runner
 {
     public class HighlightReport
     {
