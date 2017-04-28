@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/pyettmk8fp06uuti/branch/master?svg=true)](https://ci.appveyor.com/project/richorama/codehighligter/branch/master)
+
 # Code Highlighter
 
 ![](Images/Logo.png)
