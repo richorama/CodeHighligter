@@ -1,6 +1,6 @@
 # Code Highlighter
 
-![](image/Logo.png)
+![](Images/Logo.png)
 
 Annotate class, properties or methods with an attribute:
 
