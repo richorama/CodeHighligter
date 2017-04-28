@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHighlighter", "CodeHighlighter\CodeHighlighter.csproj", "{9E0B2F89-A591-40E7-BD52-EB2CC1B8193C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHighlighter.Runner", "CodeHighlighter.Runner\CodeHighlighter.Runner.csproj", "{76E30090-C798-4629-84B5-A17007607551}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHighlighter.Tests", "CodeHighlighter.Tests\CodeHighlighter.Tests.csproj", "{B93A1CBE-6CE8-4CD9-AE0D-02300834D772}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHighlighter.Tests", "CodeHighlighter.Tests\CodeHighlighter.Tests.csproj", "{B61DFAA9-0AEB-4924-9612-58F214AAC957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,10 @@ Global
 		{76E30090-C798-4629-84B5-A17007607551}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76E30090-C798-4629-84B5-A17007607551}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76E30090-C798-4629-84B5-A17007607551}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B93A1CBE-6CE8-4CD9-AE0D-02300834D772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B93A1CBE-6CE8-4CD9-AE0D-02300834D772}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B93A1CBE-6CE8-4CD9-AE0D-02300834D772}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B93A1CBE-6CE8-4CD9-AE0D-02300834D772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B61DFAA9-0AEB-4924-9612-58F214AAC957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B61DFAA9-0AEB-4924-9612-58F214AAC957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B61DFAA9-0AEB-4924-9612-58F214AAC957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B61DFAA9-0AEB-4924-9612-58F214AAC957}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.Samples.SimplePDBReader;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Microsoft.Samples.SimplePDBReader;
 
 namespace CodeHighlighter.Runner
 {
